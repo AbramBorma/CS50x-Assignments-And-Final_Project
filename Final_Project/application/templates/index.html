@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+        <!-- Start Main -->
+        <div class="landing d-flex justify-content-center align-items-center">
+            <div class="text-center text-light">
+                <h1 class="first-head">Unveiling the Charm of Cairo</h1>
+                <p class=" mb-5 introduction">Immerse yourself in a city where history whispers from every corner, and modernity pulsates with vibrant life. Cairo, a treasure trove of experiences, awaits to unfold its secrets and create unforgettable moments.</p>
+            </div>
+          </div>
+        <!-- Start Carousel -->
+        <section>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-cat="DINING" data-bs-interval="10000">
+                    <img src="../static/imgs/Dining.jpg" class="d-block w-100" alt="..." href="/dining">
+                  </div>
+                  <div class="carousel-item" data-cat="NIGHTLIFE" data-bs-interval="2000">
+                    <img src="../static/imgs/Nightlife.jpg" class="d-block w-100" alt="..." href="/nightlife">
+                  </div>
+                  <div class="carousel-item" data-cat="SIGHTSEEING">
+                    <img src="../static/imgs/Islamic-Cairo.jpg" class="d-block w-100" alt="..." href="/sightseeing">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0L10.293 8l-4.647 4.646a.5.5 0 0 1-.708-.708L9.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+        </section>
+        <!-- End Carousel -->
+        <!-- End Main -->
+{% endblock %}
