@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort.
+
+How do you know?: It takes the most duration to finish in Random and Reversed arrays while in the Sorted arrays it finishes before "Sort3".
+
+sort2 uses: Merge Sort.
+
+How do you know?: it has the least real time in all arrays.
+
+sort3 uses: Selection Sort.
+
+How do you know?: While it's faster than "Sor1" in Random and Reversed arrays, it's still slower than "Sort3" in sorted arrays. That's because of the iteration from least to most each time to find the smallest element.
