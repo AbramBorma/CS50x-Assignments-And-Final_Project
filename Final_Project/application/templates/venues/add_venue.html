@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">ADD VENUE</h2>
+              <form action="/add_venue" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <select id="country" class="form-control" autofocus name="country_id" placeholder="Select Venue's Country" required>
+                        <option value="" selected disabled>Select Venue's Country</option>
+                        {% for country in countries %}
+                            <option value="{{ country.id }}">{{ country.country }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select id="state" class="form-control" name="state_id" placeholder="Select Venue's State" required>
+                        <option value="" selected disabled>Select Venue's State</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select id="city" class="form-control" name="city_id" placeholder="Select Venue's City" required>
+                        <option value="" selected disabled>Select Venue's City</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select id="district" class="form-control" name="district_id" placeholder="Select Venue's District" required>
+                        <option value="" selected disabled>Select Venue's District</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" autocomplete="off" name="name" placeholder="Enter Venue Name" type="text">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="description" minlength="50" maxlength="500" placeholder="Write a description for the venue..." required></textarea>
+                </div>
+                <div class="mb-3">
+                    <select id="category" class="form-control" name="category_id" placeholder="Select Venue Category" required>
+                        <option value="" selected disabled>Select Venue's Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select id="subcategory" class="form-control" name="subcategory_id" placeholder="Select Venue's Sub-Category" required>
+                        <option value="" selected disabled>Select Venue's Sub-Category</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select id="price" class="form-control" name="price_range_id"  placeholder="Select Price Range" required>
+                        <option value="" selected disabled>Select Venue's Price Range</option>
+                        {% for price in prices %}
+                        <option value="{{ price.id }}">{{ price.price_range }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3" style="display: flex; align-items: center;">
+                    <input type="file" id="file" name="image_path" accept=".jpg,.jpeg,.png" required class="form-control" />
+                    <label for="file" style="white-space: nowrap; margin-left: 10px;">Add Photo</label>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="review" maxlength="500" placeholder="Write a review for the venue..." required></textarea>
+                </div>
+                <div class="mb-3">
+                    <select id="rating" class="form-control" name="rating" placeholder="Select Venue's rating" required>
+                        <option value="" selected disabled>Select Venue's Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body add-venue">Add Venue</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

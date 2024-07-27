@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dining
+{% endblock %}
+
+{% block main %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    
+    {% for venue in venues %}
+    <div class="wrapper-all">
+        <!-- Venue image on the left -->
+        <div class="wrapper-info">
+            <div class="image-div">
+                <img class="image" src="{{ url_for('static', filename=venue['relative_path']) }}" alt="{{ venue['name'] }}">
+            </div>
+    
+            <!-- Venue info in the middle -->
+            <div class="info-div">
+                <h2>{{ venue.name }}</h2>
+                <p>Desciption: <span>{{ venue.description }}</span></p>
+                <p>Address: <span>{{ venue.district }}, {{ venue.city }}, {{ venue.state }}, {{ venue.country }}</span></p>
+                <p>Type: <span>{{ venue.category }}, {{ venue.subcategory }}</span></p>
+                <p>Price Range: <span>{{ venue.price_range }}</span></p>
+            </div>
+            <div class="wrapper-addreview">
+                <form action="/add_review" method="post">
+                    <input type="hidden" name="venue_id" value="{{venue.id}}">
+                    <div class="mb-3 mt-6">
+                        <select id="rating" class="form-control add-rating" name="rating" placeholder="Select Venue's rating" required>
+                            <option value="" selected disabled>Add a Rating for this venue</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control add-review" name="review" maxlength="500" placeholder="Write a review for this venue..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block btn-md gradient-custom-4 text-body">Rate and Review</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="wrapper-reviews">
+            <div class="reviews">
+                <h4>Reviews:</h4>
+                {% if venue.reviews %}
+                <ul>
+                    {% for review in venue.reviews %}
+                        <li>{{ review }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p>No reviews available.</p>
+                {% endif %}
+            </div>
+            <div class="rating">
+                <p class="avg-rating">Avg Rating: <span>{{ venue.average_ratings }} / 5</span></p>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    {% if pagination.has_prev %}
+    <a href="{{ url_for('venue.show_category', page=pagination.prev_num, category='Dining') }}">Previous</a>
+    {% endif %}
+    Page {{ pagination.page }}
+    {% if pagination.has_next %}
+        <a href="{{ url_for('venue.show_category', page=pagination.next_num, category='Dining') }}">Next</a>
+    {% endif %}
+
+{% endblock %}
