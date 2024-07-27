@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    History
+
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction_Type</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>DateTime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for action in transactions %}
+                <tr>
+                    <td>{{ action.Transaction_Type }}</td>
+                    <td>{{ action.Symbol }}</td>
+                    <td>{{ action.Shares }}</td>
+                    <td>{{ action.Price }}</td>
+                    <td>{{ action.Total }}</td>
+                    <td>{{ action.DateTime }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+{% endblock %}
+
