@@ -1,0 +1,369 @@
+:root
+{
+    --dark-color: #19283f;
+    --terquoise: #33d1bb;
+    --section-color: #3786a5;
+}
+body
+{
+    height: 100vh;
+    width: 100%;
+    font-family: "Roboto" , sans-serif;
+}
+@media (min-width: 768px) 
+{
+    body 
+    {
+        height: 100vh;
+        width: 100%;
+        font-family: "Roboto" , sans-serif;
+
+    }
+}
+/* Start Navbar */
+.navbar
+{
+    background-color: var(--dark-color);
+}
+.navbar .navbar-brand .logo
+{
+    width: 150px;
+    height: 70px;
+}
+.navbar .navbar-nav .nav-link
+{
+    color: aliceblue;
+}
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover
+{
+    color: var(--terquoise);
+}
+.navbar .search-link
+{
+    color: var(--terquoise);
+}
+.navbar .search
+{
+    color: var(--terquoise);
+    border-left: 1px solid var(--terquoise);
+    cursor: pointer;
+}
+.navbar-toggler
+{
+    color: aliceblue;
+    font-size: 25px;
+    border-color: aliceblue;
+}
+/* End Navbar */
+/* Start Landing */
+main
+{
+    min-height: 100%;
+    
+}
+.landing
+{
+    background-color: var(--dark-color);
+    min-height: calc(50vh - 72px);
+}
+.introduction
+{
+    font-size: 30px;
+}
+.get-started
+{
+    font-size: 20px;
+}
+/* End Landing */
+.main-title::after
+{
+    content: '';
+    width: 120px;
+    height: 2px;
+    background-color: var(--terquoise);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform:translateX(-50%);
+}
+/* Start Features */
+.features .icon-holder
+{
+    height: 200px;
+}
+.features .icon-holder svg
+{
+    left: 50%;
+    transform: translateX(-50%);
+}
+.features .icon-holder .number
+{
+    width: 150px;
+    height: 150px;
+    color: var(--section-color);
+    opacity: 0.2;
+}
+
+.features h4
+{
+    color: rgb(238, 238, 71);
+}
+/* End Features */
+/* Start Our Work */
+.our-work
+{
+    background-color: rgb(231, 244, 255);
+}
+.our-work ul .active
+{
+    background-color: #f8f9fa;
+    
+}
+.our-work ul .active:hover
+{
+    color: rgb(177, 3, 38);
+}
+.our-work ul li
+{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.our-work ul li:not(.active):hover
+{
+    color: rgb(177, 3, 38);
+}
+.our-work .box
+{
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+    width: calc(vw -100px);
+    height: 300px;
+}
+.our-work .box img
+{
+    width: 100%;
+    height: 100%;
+}
+.our-work .box::before
+{
+    content: attr(data-cat);
+    position: absolute;
+    background-color: #f3f9ff;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color:#3786a5;
+    font-size: 3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: .8s;
+    transform: translateX(calc(-100% - 5px));
+}
+.our-work .box:hover::before
+{
+    transform: translateX(0);
+    cursor: pointer;
+}
+.our-work .row
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/* End Our Work */
+
+/* Start Footer */
+.footer
+{
+    min-height: 100%;
+    width: 100%;
+    display: block;
+    background-color: var(--dark-color);
+}
+#container
+{
+    background-color: var(--dark-color);
+    min-height: 100%
+    width: 100%;
+}
+#container .logo
+{
+    padding-left: 75px;
+    padding-top: 50px;
+    margin: auto;
+    width: 300px;
+    height: 250px;
+}
+#container .left-right
+{
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+#container .left
+{
+    width: 50%;
+}
+@media (min-width: 768px) 
+{
+    #container .left 
+    {
+        width: 50%;
+
+    }
+}
+#container .right
+{
+    width: 50%;
+    padding-left: 75px;
+}
+@media (min-width: 768px) 
+{
+    #container .right 
+    {
+        width: 50%;
+        max-height: 100%;
+        position: absolute;
+        right: 20px;
+    }
+}
+#container .right p
+{
+    padding-top: 10px;
+    width: 100%;
+    font-size: 25px;
+    color: #f3f9ff;
+    text-transform: uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.email-input
+{
+    padding-top: 25px;
+}
+#container .right .subscribe
+{
+    width: 300px;
+    height: 50px;
+    background-color: var(--dark-color);
+    font-size: 22px;
+    color: #f3f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#container .right .submit
+{
+    margin: auto;
+    width: 130px;
+    height: 50px;
+    background-color: var(--dark-color);
+    font-size: 22px;
+    color: #f3f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+#container .right .checkbox-input
+{
+    padding-top: 30px;
+
+}
+
+#container .right .check-text
+{
+    width: 100px;
+    font-size: 1rem;
+    color: #f3f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.table
+{
+    width: 600px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 75px;
+    padding-top: 50px;
+}
+.table .table-row
+{
+    width: 600px;
+}
+.table .table-data
+{
+    margin: 10px;
+    text-align: left;
+    border: 2px none aliceblue;
+    background-color: var(--dark-color);
+}
+.table-data a:visited,
+.table-data a:link,
+.table-data a:active
+{
+    text-decoration: none;
+    color: #f3f9ff;
+    font-size: 1.25rem;
+}
+.table-data a:hover
+{
+text-decoration: none;
+color: var(--terquoise);
+}
+#container .switch
+{
+    padding-left: 55px;
+}
+#container ul li
+{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+#container ul li svg
+{
+    width: 40px;
+    height: 40px;
+    color: #f3f9ff;
+}
+.copy-rights
+{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    font-size: 20px;
+    color: #f3f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* End Footer */
+/* Start Login */
+body .login
+{
+    /* height: 100%; */
+    width: 100%;
+    font-family: "Roboto" , sans-serif;
+}
+main .login
+{
+
+    width: 50%;
+    margin: 20px auto;
+    border: 2px solid rgb(209, 203, 203);
+}
+
+main .login form * {
+    margin: auto;
+    padding: 15px 30px;
+}
+main .login .form-check-input
+{
+    margin: 18px 0 0;
+    padding: 0;
+}
+/* End Login */

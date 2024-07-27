@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3 id="first">What's the capital of Egypt?</h3>
+                <p></p>
+                <button class="btn">Cairo</button>
+                <button class="btn">Abu Dhabi</button>
+                <button class="btn">Khartoum</button>
+                <button class="btn">Giza</button>
+                <button class="btn">Amman</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3 id="second">When was Cristiano Ronaldo born?</h3>
+                <p></p>
+                <input id="free" type="text" required size="4" placeholder="Enter a year...">
+                <input id="check" type="submit" value="Check Answer">
+            </div>
+        </div>
+        <script>
+            // Checking the first question's answer
+            let btn = document.querySelectorAll('.btn');
+
+            for (let button of btn) {
+                button.addEventListener('click', function () { // adding event listener on click
+                    let correctOne = this.innerHTML === 'Cairo';
+                    let bgColorOne = correctOne ? 'green' : 'crimson';
+                    let messageOne = correctOne ? 'Correct!' : 'Incorrect.';
+                    let qOneP = document.querySelector("#first ~ p");
+
+                    // Changing the properties of the buttons and printing a message
+                    this.style.backgroundColor = bgColorOne;
+                    this.style.color = 'white';
+                    qOneP.innerHTML = messageOne;
+                    qOneP.style.color = bgColorOne;
+
+                    // Using the setTimeOut Object to add an interactive styling
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = "";
+                        qOneP.innerHTML = '';
+                    }, 1500);
+                });
+            }
+
+            // Checking the first question's answer
+            let check = document.querySelector('#check');
+            let free = document.querySelector('#free');
+
+            check.addEventListener('click', function () {
+                let correctTwo = free.value === '1985';
+                let bgColorTwo = correctTwo ? 'green' : 'crimson';
+                let messageTwo = correctTwo ? 'Correct!' : 'Incorrect.';
+                let qTwoP = document.querySelector("#second ~ p");
+
+                free.style.backgroundColor = bgColorTwo;
+                free.style.color = 'White';
+                qTwoP.innerHTML = messageTwo;
+                qTwoP.style.color = bgColorTwo;
+                setTimeout(() => {
+                    free.style.color = "";
+                    free.style.backgroundColor = '';
+                    qTwoP.style.color = '';
+                    qTwoP.innerHTML = '';
+                    free.value = ''; // Resetting the input field after a wrong answer
+                }, 1500);
+            });
+        </script>
+    </body>
+</html>
